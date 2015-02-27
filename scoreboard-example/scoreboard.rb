@@ -10,18 +10,27 @@ class Scoreboard
   end
 
   def display
-    puts '|==========================|'
-    puts '| ' + "Student".ljust(10) + ' | ' + "Total Marks".ljust(12) + '|'
-    puts '|==========================|'
+    puts '|============================|'
+    puts "| Scorecard for #{@exam.name}".ljust(28) + ' |'
+    puts '|============================|'
+    puts '| ' + "Student".ljust(10) + ' | ' + "Total Marks".ljust(14) + '|'
+    puts '|============================|'
     @exam.total_marks.sort!.reverse.each do |g|
-      puts '| ' + g.student.name.ljust(10) + ' | ' + g.value.to_s.ljust(12) + '|'
+      puts '| ' + g.student.name.ljust(10) + ' | ' + g.value.to_s.ljust(14) + '|'
     end
-    puts '|==========================|'
+    puts '|============================|'
   end
 
 end
 
-midterm_exam = Exam.new
+midterm_exam = Exam.new('Midterm Exam')
 midterm_exam.take
-scoreboard = Scoreboard.new(midterm_exam)
-scoreboard.display
+midterm_exam_scoreboard = Scoreboard.new(midterm_exam)
+midterm_exam_scoreboard.display
+
+puts "\n\n\n\n"
+
+annual_exam = Exam.new('Annual Exam')
+annual_exam.take
+fina_scoreboard = Scoreboard.new(annual_exam)
+fina_scoreboard.display

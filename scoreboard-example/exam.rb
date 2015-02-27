@@ -8,9 +8,10 @@ class Exam
   SUBJECTS = ["Maths", "Science", "Social Studies", "Geography", "Economics"]
   STUDENTS = ["Ankur", "Rishi", "Chetan", "Pragati", "Nishant", "Chitan", "Ajay", "Hiren", "Shahid", "Subhash"]
 
-  attr_accessor :students, :subjects, :marks, :total_marks
+  attr_accessor :name, :students, :subjects, :marks, :total_marks
 
-  def initialize
+  def initialize(name)
+    @name = name
     create_students
     create_subjects
   end
